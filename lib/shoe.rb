@@ -21,6 +21,14 @@ Shoes.app height: 400, width: 500 do
     end
   end
   @edit = edit_box "", width: 300, height: 50, left: '50px', bottom: '40px'
+  @edit.change do |c|
+    text = c.text.inspect
+    if text.include? '\n'
+      @msg = @edit.text
+      @server.puts( @msg )
+      @edit.text = ''
+    end
+  end
   button 'send', left: '50px', bottom: '5px' do
      @msg = @edit.text
      @server.puts( @msg )
