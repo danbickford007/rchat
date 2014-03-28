@@ -41,12 +41,12 @@ class RubyApp < Gtk::Window
         @buffer = @label.buffer
         @scroll.add_with_viewport @label
         @entry = Gtk::Entry.new
-        @entry.grab_focus
 
  
         vbox.add @scroll
         vbox.add @entry
         
+        @entry.grab_focus
 
         add vbox 
 
